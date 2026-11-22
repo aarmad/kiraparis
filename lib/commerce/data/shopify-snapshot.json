@@ -1,0 +1,304 @@
+{
+ "ensemble-tracksuit-burgundy-cream": {
+  "legacyHandle": "sans-titre-1nov-_11-49-37",
+  "createdAt": "2026-11-01",
+  "price": 13990,
+  "variants": [
+   {
+    "id": "55108152983898",
+    "size": "S",
+    "available": true
+   },
+   {
+    "id": "55108152951130",
+    "size": "M",
+    "available": false
+   },
+   {
+    "id": "55108152918362",
+    "size": "L",
+    "available": true
+   },
+   {
+    "id": "55108152885594",
+    "size": "XL",
+    "available": true
+   }
+  ]
+ },
+ "ensemble-tracksuit-bleu-black": {
+  "legacyHandle": "sans-titre-1nov-_12-10-05",
+  "createdAt": "2026-11-01",
+  "price": 13990,
+  "variants": [
+   {
+    "id": "55108147675482",
+    "size": "S",
+    "available": true
+   },
+   {
+    "id": "55108147642714",
+    "size": "M",
+    "available": true
+   },
+   {
+    "id": "55108147609946",
+    "size": "L",
+    "available": true
+   },
+   {
+    "id": "55108147577178",
+    "size": "XL",
+    "available": true
+   }
+  ]
+ },
+ "maillot-football-vert": {
+  "legacyHandle": "jersey-kira-green",
+  "createdAt": "2026-11-01",
+  "price": 3099,
+  "variants": [
+   {
+    "id": "55108190536026",
+    "size": "S",
+    "available": true
+   },
+   {
+    "id": "55108190503258",
+    "size": "M",
+    "available": true
+   },
+   {
+    "id": "55108190470490",
+    "size": "L",
+    "available": true
+   },
+   {
+    "id": "55108190437722",
+    "size": "XL",
+    "available": true
+   }
+  ]
+ },
+ "jean-terre-craquelee-noir": {
+  "legacyHandle": "kira-jean-terre-craquelee",
+  "createdAt": "2026-04-19",
+  "price": 7990,
+  "variants": [
+   {
+    "id": "54022731825498",
+    "size": "S",
+    "available": true
+   },
+   {
+    "id": "54022732611930",
+    "size": "M",
+    "available": true
+   },
+   {
+    "id": "54022732644698",
+    "size": "L",
+    "available": true
+   },
+   {
+    "id": "54022732677466",
+    "size": "XL",
+    "available": true
+   },
+   {
+    "id": "54022733136218",
+    "size": "XXL",
+    "available": true
+   }
+  ]
+ },
+ "hoodie-kira-noir": {
+  "legacyHandle": "hoodie-kira-noir",
+  "createdAt": "2025-02-25",
+  "price": 6990,
+  "variants": [
+   {
+    "id": "50591119540570",
+    "size": "S",
+    "available": true
+   },
+   {
+    "id": "50591120261466",
+    "size": "M",
+    "available": true
+   },
+   {
+    "id": "50591120294234",
+    "size": "L",
+    "available": true
+   },
+   {
+    "id": "50591120327002",
+    "size": "XL",
+    "available": true
+   }
+  ]
+ },
+ "jogging-noir": {
+  "legacyHandle": "pantalon",
+  "createdAt": "2025-02-24",
+  "price": 6090,
+  "variants": [
+   {
+    "id": "50590991319386",
+    "size": "S",
+    "available": true
+   },
+   {
+    "id": "50590992073050",
+    "size": "M",
+    "available": false
+   },
+   {
+    "id": "50590992105818",
+    "size": "L",
+    "available": false
+   },
+   {
+    "id": "50590992138586",
+    "size": "XL",
+    "available": false
+   }
+  ]
+ },
+ "hoodie-kira-vert": {
+  "legacyHandle": "sans-titre-24fevr-_21-32",
+  "createdAt": "2025-02-24",
+  "price": 5990,
+  "variants": [
+   {
+    "id": "50590743298394",
+    "size": "S",
+    "available": true
+   },
+   {
+    "id": "50590744150362",
+    "size": "M",
+    "available": true
+   },
+   {
+    "id": "50590744183130",
+    "size": "L",
+    "available": true
+   },
+   {
+    "id": "50590744215898",
+    "size": "XL",
+    "available": true
+   }
+  ]
+ },
+ "hoodie-kira-bleu": {
+  "legacyHandle": "hoodie-kira",
+  "createdAt": "2025-02-24",
+  "price": 5990,
+  "variants": [
+   {
+    "id": "50590689427802",
+    "size": "S",
+    "available": true
+   },
+   {
+    "id": "50590705484122",
+    "size": "M",
+    "available": true
+   },
+   {
+    "id": "50590705516890",
+    "size": "L",
+    "available": true
+   },
+   {
+    "id": "50590705549658",
+    "size": "XL",
+    "available": true
+   }
+  ]
+ },
+ "hoodie-hunter-rouge-delave": {
+  "legacyHandle": "hoodie-hunter-2",
+  "createdAt": "2025-02-24",
+  "price": 6990,
+  "variants": [
+   {
+    "id": "50589496050010",
+    "size": "S",
+    "available": true
+   },
+   {
+    "id": "50589497295194",
+    "size": "M",
+    "available": true
+   },
+   {
+    "id": "50589497327962",
+    "size": "L",
+    "available": true
+   },
+   {
+    "id": "50589497360730",
+    "size": "XL",
+    "available": true
+   }
+  ]
+ },
+ "hoodie-hunter-noir": {
+  "legacyHandle": "hoodie-hunter-1",
+  "createdAt": "2025-02-24",
+  "price": 6990,
+  "variants": [
+   {
+    "id": "50589429170522",
+    "size": "S",
+    "available": true
+   },
+   {
+    "id": "50589440573786",
+    "size": "M",
+    "available": true
+   },
+   {
+    "id": "50589440606554",
+    "size": "L",
+    "available": true
+   },
+   {
+    "id": "50589440639322",
+    "size": "XL",
+    "available": false
+   }
+  ]
+ },
+ "hoodie-hunter-gris": {
+  "legacyHandle": "hoodie-hunter",
+  "createdAt": "2025-01-14",
+  "price": 6990,
+  "variants": [
+   {
+    "id": "50315531288922",
+    "size": "S",
+    "available": true
+   },
+   {
+    "id": "50315531321690",
+    "size": "M",
+    "available": true
+   },
+   {
+    "id": "50315531354458",
+    "size": "L",
+    "available": true
+   },
+   {
+    "id": "50315531387226",
+    "size": "XL",
+    "available": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,249 @@
+[
+ {
+  "url": "https://www.kiraparis.com/cdn/shop/files/IMG_7474-removebg-preview.png",
+  "dest": "public/images/brand/img_7474-removebg-preview.png",
+  "role": "brand"
+ },
+ {
+  "url": "https://www.kiraparis.com/cdn/shop/files/icone_kira-removebg-preview_1.png",
+  "dest": "public/images/brand/icone_kira-removebg-preview_1.png",
+  "role": "brand"
+ },
+ {
+  "url": "https://www.kiraparis.com/cdn/shop/files/IMG_6103.png",
+  "dest": "public/images/brand/img_6103.png",
+  "role": "brand"
+ },
+ {
+  "url": "https://www.kiraparis.com/cdn/shop/files/IMG_1169.jpg",
+  "dest": "public/images/lifestyle/campagne-athletics-hero.jpg",
+  "role": "hero"
+ },
+ {
+  "url": "https://www.kiraparis.com/cdn/shop/files/HOODIE_HUNTER_KIRA.jpg",
+  "dest": "public/images/banners/collection-hunter.jpg",
+  "role": "banner"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/91529612-7C48-4BEE-97EC-76EF4711E0E6.jpg",
+  "dest": "public/images/products/ensemble-tracksuit-burgundy-cream/01.jpg",
+  "role": "product",
+  "product": "ensemble-tracksuit-burgundy-cream"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/18C289CD-3EE2-4F88-8EC1-E1E020A928D9.jpg",
+  "dest": "public/images/products/ensemble-tracksuit-burgundy-cream/02.jpg",
+  "role": "product",
+  "product": "ensemble-tracksuit-burgundy-cream"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/CEC208A8-F8B2-40F6-9437-9C57CFA92765.jpg",
+  "dest": "public/images/products/ensemble-tracksuit-burgundy-cream/03.jpg",
+  "role": "product",
+  "product": "ensemble-tracksuit-burgundy-cream"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/E97DC80F-4F41-4AEB-ADCF-D301D00FCEA3.jpg",
+  "dest": "public/images/products/ensemble-tracksuit-burgundy-cream/04.jpg",
+  "role": "product",
+  "product": "ensemble-tracksuit-burgundy-cream"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/A78256EF-C5B8-42F3-95FA-041C37136F48.jpg",
+  "dest": "public/images/products/ensemble-tracksuit-burgundy-cream/05.jpg",
+  "role": "product",
+  "product": "ensemble-tracksuit-burgundy-cream"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/2902BF7D-DAC5-43AC-ADE8-8DBA94F6EBC5.jpg",
+  "dest": "public/images/products/ensemble-tracksuit-burgundy-cream/06.jpg",
+  "role": "product",
+  "product": "ensemble-tracksuit-burgundy-cream"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/ENSEMBLE_KIRA_Athletics-Bleue_Black.jpg",
+  "dest": "public/images/products/ensemble-tracksuit-bleu-black/01.jpg",
+  "role": "product",
+  "product": "ensemble-tracksuit-bleu-black"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/ENSEMBLE_KIRA_Athletics-Bleue_Black_bleue.jpg",
+  "dest": "public/images/products/ensemble-tracksuit-bleu-black/02.jpg",
+  "role": "product",
+  "product": "ensemble-tracksuit-bleu-black"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/ENSEMBLE_KIRA_Athletics-Bleue.jpg",
+  "dest": "public/images/products/ensemble-tracksuit-bleu-black/03.jpg",
+  "role": "product",
+  "product": "ensemble-tracksuit-bleu-black"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/76F7C072-91BA-460A-9C2D-5E78CE8B6FB6.jpg",
+  "dest": "public/images/products/ensemble-tracksuit-bleu-black/04.jpg",
+  "role": "product",
+  "product": "ensemble-tracksuit-bleu-black"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/ENSEMBLE_KIRA_Athletics-Bleue_BlackBD.jpg",
+  "dest": "public/images/products/ensemble-tracksuit-bleu-black/05.jpg",
+  "role": "product",
+  "product": "ensemble-tracksuit-bleu-black"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/Maillot_de_football_KIRA_-_Vert.jpg",
+  "dest": "public/images/products/maillot-football-vert/01.jpg",
+  "role": "product",
+  "product": "maillot-football-vert"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/Maillot_KIRA_Paris_Green.jpg",
+  "dest": "public/images/products/maillot-football-vert/02.jpg",
+  "role": "product",
+  "product": "maillot-football-vert"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/Kira_jersey.jpg",
+  "dest": "public/images/products/maillot-football-vert/03.jpg",
+  "role": "product",
+  "product": "maillot-football-vert"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/Jersey_Kira.jpg",
+  "dest": "public/images/products/maillot-football-vert/04.jpg",
+  "role": "product",
+  "product": "maillot-football-vert"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/kira_football.jpg",
+  "dest": "public/images/products/maillot-football-vert/05.jpg",
+  "role": "product",
+  "product": "maillot-football-vert"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/kira_Jersey_Kira.jpg",
+  "dest": "public/images/products/maillot-football-vert/06.jpg",
+  "role": "product",
+  "product": "maillot-football-vert"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/KIRA_Football_Geen.jpg",
+  "dest": "public/images/products/maillot-football-vert/07.jpg",
+  "role": "product",
+  "product": "maillot-football-vert"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/6AB01BEC-DDED-47D6-AE66-D528B183F0FE.jpg",
+  "dest": "public/images/products/jean-terre-craquelee-noir/01.jpg",
+  "role": "product",
+  "product": "jean-terre-craquelee-noir"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/739F3D08-7C68-4713-B52E-2A9CFB05B21A.jpg",
+  "dest": "public/images/products/jean-terre-craquelee-noir/02.jpg",
+  "role": "product",
+  "product": "jean-terre-craquelee-noir"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/Photoroom_20261101_165221.jpg",
+  "dest": "public/images/products/jean-terre-craquelee-noir/03.jpg",
+  "role": "product",
+  "product": "jean-terre-craquelee-noir"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/816C57A5-B542-4CE0-ADA2-B348FA7024CE.jpg",
+  "dest": "public/images/products/jean-terre-craquelee-noir/04.jpg",
+  "role": "product",
+  "product": "jean-terre-craquelee-noir"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/HOODIE_KIRA_NOIR.jpg",
+  "dest": "public/images/products/hoodie-kira-noir/01.jpg",
+  "role": "product",
+  "product": "hoodie-kira-noir"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/SWEAT_KIRA_NOIR.jpg",
+  "dest": "public/images/products/hoodie-kira-noir/02.jpg",
+  "role": "product",
+  "product": "hoodie-kira-noir"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/SWEAT_PANTS_KIRA_NOIR.jpg",
+  "dest": "public/images/products/jogging-noir/01.jpg",
+  "role": "product",
+  "product": "jogging-noir"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/PANTALON_JOGGING_NOIR.jpg",
+  "dest": "public/images/products/jogging-noir/02.jpg",
+  "role": "product",
+  "product": "jogging-noir"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/PANTALON_JOGGING_ZIP_NOIR.jpg",
+  "dest": "public/images/products/jogging-noir/03.jpg",
+  "role": "product",
+  "product": "jogging-noir"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/HOODIE_KIRA_VERT.jpg",
+  "dest": "public/images/products/hoodie-kira-vert/01.jpg",
+  "role": "product",
+  "product": "hoodie-kira-vert"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/SWEAT_CAPUCHE_EPAIS_VERT.jpg",
+  "dest": "public/images/products/hoodie-kira-vert/02.jpg",
+  "role": "product",
+  "product": "hoodie-kira-vert"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/Hoodie_bleu_streetwear.jpg",
+  "dest": "public/images/products/hoodie-kira-bleu/01.jpg",
+  "role": "product",
+  "product": "hoodie-kira-bleu"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/sweat_capuche_bleu_marine_homme_hoodie_bleu_KIRA_streetwear_Paris.jpg",
+  "dest": "public/images/products/hoodie-kira-bleu/02.jpg",
+  "role": "product",
+  "product": "hoodie-kira-bleu"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/sweat_capuche_terre_KIRA_Paris.jpg",
+  "dest": "public/images/products/hoodie-hunter-deep-chestnut/01.jpg",
+  "role": "product",
+  "product": "hoodie-hunter-deep-chestnut"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/sweat_capuche_terre_KIRA_Paris_streetwear_couleur_originale.jpg",
+  "dest": "public/images/products/hoodie-hunter-deep-chestnut/02.jpg",
+  "role": "product",
+  "product": "hoodie-hunter-deep-chestnut"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/HOODIE_HUNTER_GRIS_FONC.jpg",
+  "dest": "public/images/products/hoodie-hunter-gris-fonce/01.jpg",
+  "role": "product",
+  "product": "hoodie-hunter-gris-fonce"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/SWEAT_CAPUCHE_EPAIS_RIS_FONC.jpg",
+  "dest": "public/images/products/hoodie-hunter-gris-fonce/02.jpg",
+  "role": "product",
+  "product": "hoodie-hunter-gris-fonce"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/HOODIE_HUNTER_GRIS.jpg",
+  "dest": "public/images/products/hoodie-hunter-gris/01.jpg",
+  "role": "product",
+  "product": "hoodie-hunter-gris"
+ },
+ {
+  "url": "https://cdn.shopify.com/s/files/1/0929/5331/3626/files/SWEAT_CAPUCHE_HUNTER_GRIS.jpg",
+  "dest": "public/images/products/hoodie-hunter-gris/02.jpg",
+  "role": "product",
+  "product": "hoodie-hunter-gris"
+ }
+]
