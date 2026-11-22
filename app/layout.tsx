@@ -6,7 +6,7 @@ import { CartDrawer } from "@/components/cart/cart-drawer";
 import { AnnouncementBar } from "@/components/layout/announcement-bar";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { site } from "@/lib/site";
+import { indexingAllowed, site } from "@/lib/site";
 
 /**
  * Typographies :
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     images: [{ url: "/images/lifestyle/campagne-athletics-hero.jpg", width: 1284, height: 1898, alt: "Campagne Kira Athletics" }],
   },
   icons: { icon: "/images/brand/emblem.png" },
-  robots: { index: false, follow: false }, // prototype : non indexé
+  robots: indexingAllowed ? { index: true, follow: true } : { index: false, follow: false },
 };
 
 export const viewport: Viewport = {

@@ -1,11 +1,10 @@
 import type { MetadataRoute } from "next";
-import { site } from "@/lib/site";
+import { indexingAllowed, site } from "@/lib/site";
 
-/** Prototype : indexation bloquée. À ouvrir (allow: "/") au passage en production. */
+/** Indexation bloquée tant que ALLOW_INDEXING n'est pas activé en production (cf. lib/site.ts). */
 export default function robots(): MetadataRoute.Robots {
-  const isProd = process.env.VERCEL_ENV === "production" && process.env.ALLOW_INDEXING === "true";
   return {
-    rules: isProd ? { userAgent: "*", allow: "/" } : { userAgent: "*", disallow: "/" },
+    rules: indexingAllowed ? { userAgent: "*", allow: "/" } : { userAgent: "*", disallow: "/" },
     sitemap: `${site.url}/sitemap.xml`,
   };
 }

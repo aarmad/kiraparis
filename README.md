@@ -47,3 +47,4 @@ docs/                Audit, inventaire des assets, DA, architecture, notes proto
 - [Direction artistique](docs/03-direction-artistique.md)
 - [Architecture technique](docs/04-architecture-technique.md)
 - [Notes du prototype et points à valider](docs/05-prototype.md)
+- [Déploiement Vercel](docs/06-deploiement-vercel.md)

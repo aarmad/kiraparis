@@ -6,9 +6,28 @@
  *   - seuil de livraison offerte (la politique d'expédition indique 70 €, la FAQ « sans minimum ») ;
  *   - email de contact officiel.
  */
+/**
+ * URL canonique : NEXT_PUBLIC_SITE_URL si définie, sinon le domaine de production Vercel,
+ * sinon l'URL du déploiement courant (aperçus), sinon localhost.
+ */
+function resolveSiteUrl() {
+  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "");
+  if (process.env.VERCEL_ENV === "production" && process.env.VERCEL_PROJECT_PRODUCTION_URL)
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
+  return "http://localhost:3000";
+}
+
+/**
+ * Indexation par les moteurs : uniquement en production Vercel ET si ALLOW_INDEXING=true.
+ * Tant que la refonte n'a pas remplacé le site Shopify, laisser à false (évite le contenu dupliqué).
+ */
+export const indexingAllowed =
+  process.env.VERCEL_ENV === "production" && process.env.ALLOW_INDEXING === "true";
+
 export const site = {
   name: "KIRA Paris",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  url: resolveSiteUrl(),
   tagline: "Force tranquille, élégance essentielle.",
   description:
     "KIRA Paris, la marque streetwear née de Kirané et de la culture soninké. Hoodies 400 GSM, denim, drops Athletics. Pièces en édition limitée.",
