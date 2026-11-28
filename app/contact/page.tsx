@@ -15,7 +15,7 @@ export default function ContactPage() {
     <div className="mx-auto grid max-w-[1600px] gap-14 px-4 pb-24 pt-10 md:grid-cols-12 md:px-8 md:pt-16">
       <div className="md:col-span-5">
         <p className="label-mono text-terracotta">Contact</p>
-        <h1 className="mt-3 font-display text-[4.6rem] md:text-[7rem]">Écris-nous</h1>
+        <h1 className="mt-3 font-display text-[28px] md:text-[36px]">Écris-nous</h1>
         <p className="mt-6 max-w-md text-[17px] leading-relaxed text-ink-soft">
           Une question sur une commande, une taille ou le prochain drop&nbsp;? On te répond dans les plus brefs délais.
         </p>

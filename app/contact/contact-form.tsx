@@ -13,7 +13,7 @@ export function ContactForm() {
     return (
       <div className="bg-clay-100 p-8" role="status">
         <Check className="size-6 text-terracotta" />
-        <p className="mt-4 font-serif text-3xl italic">Message prêt à partir.</p>
+        <p className="mt-4 text-[20px] font-semibold">Message prêt à partir.</p>
         <p className="mt-2 text-[15px] text-muted">
           Prototype : le formulaire n&apos;est pas encore relié à la boîte mail de la marque. En production, il sera branché sur le
           formulaire de contact Shopify.

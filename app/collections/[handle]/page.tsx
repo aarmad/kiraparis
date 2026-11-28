@@ -33,8 +33,8 @@ export default async function CollectionPage({ params }: { params: Promise<{ han
 
   return (
     <>
-      <CollectionHeader collection={collection} count={products.length} />
-      <section className="mx-auto max-w-[1600px] px-4 pb-24 md:px-8">
+      <CollectionHeader collection={collection} />
+      <section className="mx-auto max-w-[1600px] px-3 pb-24 md:px-6">
         <Suspense>
           <ProductGrid products={products} />
         </Suspense>
@@ -42,7 +42,7 @@ export default async function CollectionPage({ params }: { params: Promise<{ han
 
       <section aria-labelledby="autres" className="border-t border-ink/10 bg-clay-100">
         <div className="mx-auto max-w-[1600px] px-4 py-16 md:px-8 md:py-20">
-          <h2 id="autres" className="font-display text-[2.6rem] md:text-[3.4rem]">Continuer l&apos;exploration</h2>
+          <h2 id="autres" className="font-display text-[16px] md:text-[18px]">Continuer l&apos;exploration</h2>
           <ul className="mt-8 grid gap-4 sm:grid-cols-3">
             {others.map((c) => (
               <li key={c.handle}>
@@ -58,7 +58,7 @@ export default async function CollectionPage({ params }: { params: Promise<{ han
                   <div className="absolute inset-0 bg-gradient-to-t from-ink/70 to-transparent" />
                   <div className="absolute bottom-0 left-0 p-5 text-clay-50">
                     <p className="label-mono text-clay-50/70">{c.kicker}</p>
-                    <p className="font-display text-[2.4rem]">{c.title}</p>
+                    <p className="font-display text-[20px] md:text-[22px]">{c.title}</p>
                   </div>
                 </Link>
               </li>

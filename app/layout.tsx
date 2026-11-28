@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Big_Shoulders, Brygada_1918, Schibsted_Grotesk } from "next/font/google";
+import { Schibsted_Grotesk } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/components/cart/cart-context";
 import { CartDrawer } from "@/components/cart/cart-drawer";
@@ -8,24 +8,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { indexingAllowed, site } from "@/lib/site";
 
-/**
- * Typographies :
- * - Big Shoulders : grotesque condensée d'inspiration athlétique (titres, chiffres)
- * - Brygada 1918 : revival d'un caractère de 1918, voix « héritage » en italique
- * - Schibsted Grotesk : grotesque éditoriale de presse (texte, interface, étiquettes)
- */
-const display = Big_Shoulders({
-  subsets: ["latin"],
-  axes: ["opsz"],
-  variable: "--font-display",
-  display: "swap",
-});
-const serif = Brygada_1918({
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  variable: "--font-serif-heritage",
-  display: "swap",
-});
+/** Typographie unique « Vestiaire » : Schibsted Grotesk (titres en capitales, texte, interface). */
 const sans = Schibsted_Grotesk({
   subsets: ["latin"],
   style: ["normal", "italic"],
@@ -56,7 +39,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${display.variable} ${serif.variable} ${sans.variable}`}>
+    <html lang="fr" className={sans.variable}>
       <body className="min-h-svh">
         <a
           href="#contenu"

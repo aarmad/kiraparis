@@ -25,7 +25,7 @@ export default function FaqPage() {
         <aside className="md:col-span-4">
           <div className="md:sticky md:top-28">
             <p className="label-mono text-terracotta">Aide</p>
-            <h1 className="mt-3 font-display text-[5rem] md:text-[7rem]">FAQ</h1>
+            <h1 className="mt-3 font-display text-[28px] md:text-[36px]">FAQ</h1>
             <nav aria-label="Rubriques" className="mt-8">
               <ul className="space-y-2 text-[15px]">
                 {faq.map((s) => (
@@ -36,7 +36,7 @@ export default function FaqPage() {
               </ul>
             </nav>
             <div className="mt-10 bg-clay-100 p-6">
-              <p className="font-serif text-2xl italic">Pas trouvé ta réponse&nbsp;?</p>
+              <p className="text-[18px] font-semibold">Pas trouvé ta réponse&nbsp;?</p>
               <p className="mt-2 text-[14px] text-muted">On te répond dans les plus brefs délais.</p>
               <ButtonLink href="/contact" variant="ink" className="mt-5">Nous écrire</ButtonLink>
             </div>
@@ -45,7 +45,7 @@ export default function FaqPage() {
         <div className="md:col-span-7 md:col-start-6">
           {faq.map((s) => (
             <section key={s.id} id={s.id} aria-labelledby={`${s.id}-t`} className="scroll-mt-28 pb-12">
-              <h2 id={`${s.id}-t`} className="font-display text-[2.4rem] md:text-[3rem]">{s.title}</h2>
+              <h2 id={`${s.id}-t`} className="font-display text-[18px] md:text-[20px]">{s.title}</h2>
               <div className="mt-4 divide-y divide-ink/10 border-y border-ink/10">
                 {s.items.map((i) => (
                   <details key={i.q} className="group/d">

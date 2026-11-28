@@ -59,7 +59,7 @@ export function SearchOverlay({ open, onClose }: { open: boolean; onClose: () =>
                   value={q}
                   onChange={(e) => setQ(e.target.value)}
                   placeholder="Hoodie, maillot, jean…"
-                  className="min-w-0 flex-1 bg-transparent font-display text-[2.6rem] placeholder:text-ink/25 focus:outline-none md:text-[4.5rem]"
+                  className="min-w-0 flex-1 bg-transparent font-display text-[22px] placeholder:text-ink/25 focus:outline-none md:text-[32px]"
                   autoComplete="off"
                 />
                 <button type="button" onClick={onClose} className="grid size-10 shrink-0 place-items-center" aria-label="Fermer">

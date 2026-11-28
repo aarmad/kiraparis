@@ -48,3 +48,4 @@ docs/                Audit, inventaire des assets, DA, architecture, notes proto
 - [Architecture technique](docs/04-architecture-technique.md)
 - [Notes du prototype et points à valider](docs/05-prototype.md)
 - [Déploiement Vercel](docs/06-deploiement-vercel.md)
+- [Direction « Vestiaire » (actuelle)](docs/07-direction-vestiaire.md)

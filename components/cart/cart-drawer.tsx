@@ -36,7 +36,7 @@ export function CartDrawer() {
             className="absolute inset-y-0 right-0 flex w-full max-w-[440px] flex-col bg-clay-50 shadow-2xl"
           >
             <header className="flex items-center justify-between border-b border-ink/10 px-5 py-4">
-              <h2 className="font-display text-[2rem]">
+              <h2 className="font-display text-[18px]">
                 Panier <span className="font-sans text-base font-medium normal-case tracking-normal text-muted">({count})</span>
               </h2>
               <button type="button" onClick={close} className="-mr-2 grid size-10 place-items-center" aria-label="Fermer le panier">
@@ -69,7 +69,7 @@ export function CartDrawer() {
 
             {lines.length === 0 ? (
               <div className="flex flex-1 flex-col overflow-y-auto px-5 py-8">
-                <p className="font-serif text-[1.9rem] italic leading-tight">Ton panier attend sa première pièce.</p>
+                <p className="text-[20px] font-semibold leading-tight">Ton panier attend sa première pièce.</p>
                 <p className="mt-2 text-muted">Commence par le dernier drop :</p>
                 <ul className="mt-6 grid grid-cols-2 gap-3">
                   {suggestions.map((p) => (

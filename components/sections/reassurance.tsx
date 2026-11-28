@@ -1,47 +1,34 @@
 import Link from "next/link";
-import { cn as clsx } from "@/lib/cn";
-import { Lock, MessageCircle, RotateCcw, Truck } from "lucide-react";
+import { cn } from "@/lib/cn";
 import { formatPrice, site } from "@/lib/site";
 
-export const reassuranceItems = [
-  {
-    icon: Truck,
-    title: `Livraison offerte dès ${formatPrice(site.freeShippingThreshold).replace(",00", "")}`,
-    text: `En France métropolitaine. Livrée en ${site.deliveryFrance}.`,
-    href: "/legal/livraison",
-  },
-  {
-    icon: RotateCcw,
-    title: `${site.returnDays} jours pour changer d'avis`,
-    text: "Échange de taille possible, dans la limite des stocks.",
-    href: "/legal/retours",
-  },
-  {
-    icon: Lock,
-    title: "Paiement sécurisé",
-    text: "Carte bancaire, PayPal, Apple Pay, Google Pay, Shop Pay.",
-    href: "/faq#paiement",
-  },
-  {
-    icon: MessageCircle,
-    title: "Une question ?",
-    text: "Écris-nous, on te répond dans les plus brefs délais.",
-    href: "/contact",
-  },
+const items = [
+  { label: `Livraison offerte dès ${formatPrice(site.freeShippingThreshold).replace(",00", "")}`, href: "/legal/livraison" },
+  { label: `${site.returnDays} jours pour changer d'avis`, href: "/legal/retours" },
+  { label: "Paiement sécurisé", href: "/faq#paiement" },
+  { label: "Né à Kirané, imaginé à Paris", href: "/notre-histoire" },
 ];
 
+/** Bande de réassurance : quatre engagements, en capitales. */
 export function Reassurance({ className }: { className?: string }) {
   return (
-    <section aria-label="Nos engagements" className={clsx("border-y border-ink/10 bg-clay-100", className)}>
-      <ul className="mx-auto grid max-w-[1600px] grid-cols-1 divide-y divide-ink/10 px-4 sm:grid-cols-2 sm:divide-y-0 md:px-8 lg:grid-cols-4 lg:divide-x">
-        {reassuranceItems.map(({ icon: Icon, title, text, href }) => (
-          <li key={title}>
-            <Link href={href} className="group/r flex items-start gap-4 py-6 lg:px-6 lg:first:pl-0">
-              <Icon className="mt-0.5 size-5 shrink-0 text-terracotta" strokeWidth={1.6} />
-              <span>
-                <span className="block font-semibold group-hover/r:underline group-hover/r:underline-offset-4">{title}</span>
-                <span className="mt-0.5 block text-[14px] text-muted">{text}</span>
-              </span>
+    <section aria-label="Nos engagements" className={cn("border-y border-clay-200", className)}>
+      <ul className="mx-auto grid max-w-[1600px] grid-cols-2 md:grid-cols-4">
+        {items.map((it, i) => (
+          <li
+            key={it.label}
+            className={cn(
+              "border-clay-200",
+              i % 2 === 1 && "border-l",
+              i < 2 && "border-b md:border-b-0",
+              i === 2 && "md:border-l",
+            )}
+          >
+            <Link
+              href={it.href}
+              className="flex h-full items-center justify-center px-3 py-4 text-center text-[11px] font-bold uppercase tracking-[0.04em] hover:text-terracotta md:py-[22px] md:text-[12px]"
+            >
+              {it.label}
             </Link>
           </li>
         ))}

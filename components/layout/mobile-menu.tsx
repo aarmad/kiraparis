@@ -28,14 +28,13 @@ export function MobileMenu({
           role="dialog"
           aria-modal="true"
           aria-label="Menu"
-          className="fixed inset-0 z-50 flex flex-col bg-chestnut text-clay-50 md:hidden"
+          className="fixed inset-0 z-50 flex flex-col bg-clay-50 text-ink md:hidden"
           initial={{ clipPath: "inset(0 0 100% 0)" }}
           animate={{ clipPath: "inset(0 0 0% 0)" }}
           exit={{ clipPath: "inset(0 0 100% 0)" }}
           transition={{ duration: 0.55, ease: [0.32, 0.72, 0, 1] }}
         >
-          <div className="cracked-earth pointer-events-none absolute inset-0 opacity-60" aria-hidden />
-          <div className="relative flex h-16 items-center justify-between px-4">
+          <div className="relative flex h-16 items-center justify-between border-b border-clay-200 px-4">
             <button type="button" onClick={onClose} className="-ml-2 grid size-10 place-items-center" aria-label="Fermer le menu">
               <X className="size-6" strokeWidth={1.6} />
             </button>
@@ -46,12 +45,13 @@ export function MobileMenu({
           </div>
 
           <nav aria-label="Menu mobile" className="relative flex-1 overflow-y-auto px-4 pb-8 pt-6">
-            <ul className="space-y-1">
+            <ul className="divide-y divide-clay-200">
               {[
-                { href: "/collections/athletics", label: "Athletics", note: "Nouveau" },
-                { href: "/collections/hunter", label: "Hunter" },
-                { href: "/collections/denim", label: "Denim" },
-                { href: "/collections/essentiels", label: "Essentiels" },
+                { href: "/collections?tri=nouveautes", label: "Nouveautés", note: "Drop Athletics" },
+                { href: "/collections?categorie=ensembles", label: "Ensembles" },
+                { href: "/collections?categorie=hoodies", label: "Hoodies" },
+                { href: "/collections?categorie=maillots", label: "Maillots" },
+                { href: "/collections?categorie=pantalons", label: "Pantalons & denim" },
                 { href: "/collections", label: "Tout voir" },
               ].map((item, i) => (
                 <motion.li
@@ -60,9 +60,9 @@ export function MobileMenu({
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.15 + i * 0.05, duration: 0.5, ease: [0.2, 0.7, 0.2, 1] }}
                 >
-                  <Link href={item.href} className="flex items-baseline gap-3 py-1">
-                    <span className="font-display text-[3.4rem]">{item.label}</span>
-                    {item.note && <span className="label-mono text-sand">{item.note}</span>}
+                  <Link href={item.href} className="flex items-baseline justify-between gap-3 py-3.5">
+                    <span className="font-display text-[18px]">{item.label}</span>
+                    {item.note && <span className="label-mono text-terracotta">{item.note}</span>}
                   </Link>
                 </motion.li>
               ))}
@@ -71,15 +71,15 @@ export function MobileMenu({
             <div className="no-scrollbar -mx-4 mt-8 flex snap-x gap-3 overflow-x-auto px-4">
               {collections.slice(0, 3).map((c) => (
                 <Link key={c.handle} href={`/collections/${c.handle}`} className="w-[44%] shrink-0 snap-start">
-                  <div className="relative aspect-[4/5] overflow-hidden bg-chestnut-deep">
+                  <div className="relative aspect-[3/4] overflow-hidden bg-clay-100">
                     <Image src={c.image.src} alt="" fill sizes="45vw" className="object-cover" style={{ objectPosition: c.image.position }} />
                   </div>
-                  <p className="label-mono mt-2 text-clay-50/70">{c.kicker}</p>
+                  <p className="mt-2 text-[12px] font-bold uppercase tracking-[0.04em]">{c.title}</p>
                 </Link>
               ))}
             </div>
 
-            <ul className="mt-10 grid grid-cols-2 gap-y-3 text-[15px] text-clay-50/85">
+            <ul className="mt-10 grid grid-cols-2 gap-y-3 text-[14px] text-ink-soft">
               <li><Link href="/notre-histoire">Notre histoire</Link></li>
               <li><Link href="/faq">FAQ</Link></li>
               <li><Link href="/contact">Contact</Link></li>
@@ -88,9 +88,9 @@ export function MobileMenu({
               <li><a href={site.tiktok} target="_blank" rel="noreferrer">TikTok</a></li>
             </ul>
           </nav>
-          <div className="relative flex items-center gap-3 border-t border-clay-50/15 px-4 py-4">
-            <Emblem className="size-6 text-sand" />
-            <p className="font-serif text-lg italic">{site.tagline}</p>
+          <div className="relative flex items-center gap-3 border-t border-clay-200 px-4 py-4">
+            <Emblem className="size-6 text-terracotta" />
+            <p className="text-[12px] font-bold uppercase tracking-[0.04em]">{site.tagline}</p>
           </div>
         </motion.div>
       )}

@@ -11,7 +11,7 @@ export default function TrackPage() {
   return (
     <div className="mx-auto max-w-2xl px-4 pb-24 pt-10 md:pt-20">
       <p className="label-mono text-terracotta">Commande</p>
-      <h1 className="mt-3 font-display text-[4.2rem] md:text-[6rem]">Où est mon colis&nbsp;?</h1>
+      <h1 className="mt-3 font-display text-[28px] md:text-[36px]">Où est mon colis&nbsp;?</h1>
       <p className="mt-5 text-[17px] leading-relaxed text-ink-soft">
         Ton numéro de suivi t&apos;est envoyé par email dès l&apos;expédition. Saisis-le ci-dessous pour connaître l&apos;état de ta
         livraison.

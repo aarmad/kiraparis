@@ -17,10 +17,8 @@ const collections = getCollections();
 
 export function Header() {
   const pathname = usePathname();
-  const overHero = pathname === "/" || pathname === "/notre-histoire" || pathname.startsWith("/collections/");
   const { count, open: openCart } = useCart();
 
-  const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [mega, setMega] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -31,7 +29,6 @@ export function Header() {
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      setScrolled(y > 24);
       setHidden(y > 320 && y > lastY.current + 4);
       if (y < lastY.current - 4) setHidden(false);
       lastY.current = y;
@@ -50,7 +47,6 @@ export function Header() {
     setSearchOpen(false);
   }
 
-  const transparent = overHero && !scrolled && !mega;
   const openMega = () => {
     if (megaTimer.current) clearTimeout(megaTimer.current);
     setMega(true);
@@ -65,9 +61,7 @@ export function Header() {
         className={clsx(
           "sticky top-0 z-40 transition-[transform,background-color,color,box-shadow] duration-500 ease-[var(--ease-out-soft)]",
           hidden && !mega && !menuOpen && !searchOpen ? "-translate-y-full" : "translate-y-0",
-          transparent
-            ? "bg-transparent text-clay-50"
-            : "bg-clay-50/88 text-ink shadow-[0_1px_0_rgb(21_18_15/0.08)] backdrop-blur-xl",
+          "border-b border-clay-200 bg-clay-50 text-ink",
         )}
         onMouseLeave={closeMega}
       >
@@ -83,28 +77,32 @@ export function Header() {
             >
               <Menu className="size-[22px]" strokeWidth={1.6} />
             </button>
-            <ul className="hidden items-center gap-7 text-[13px] font-semibold uppercase tracking-[0.12em] md:flex">
+            <ul className="hidden items-center gap-6 text-[13px] font-semibold uppercase tracking-[0.04em] md:flex">
+              <li onMouseEnter={closeMega}>
+                <Link href="/collections?tri=nouveautes" className="py-2 hover:text-terracotta">
+                  Nouveautés
+                </Link>
+              </li>
+              <li onMouseEnter={closeMega}>
+                <Link href="/collections" className="py-2 hover:text-terracotta">
+                  Vêtements
+                </Link>
+              </li>
               <li onMouseEnter={openMega}>
                 <button
                   type="button"
-                  className="relative py-2 uppercase tracking-[0.12em]"
+                  className="relative py-2 uppercase tracking-[0.04em] hover:text-terracotta"
                   aria-expanded={mega}
                   aria-controls="mega-menu"
                   onClick={() => setMega((v) => !v)}
                   onFocus={openMega}
                 >
-                  Boutique
+                  Collections
                 </button>
               </li>
               <li onMouseEnter={closeMega}>
-                <Link href="/collections/athletics" className="group/link flex items-center gap-2 py-2">
-                  <span className="size-1.5 rounded-full bg-terracotta" aria-hidden />
-                  Athletics
-                </Link>
-              </li>
-              <li onMouseEnter={closeMega}>
-                <Link href="/notre-histoire" className="py-2">
-                  Notre histoire
+                <Link href="/notre-histoire" className="py-2 hover:text-terracotta">
+                  KIRA
                 </Link>
               </li>
             </ul>
@@ -120,20 +118,18 @@ export function Header() {
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
-              className="grid size-10 place-items-center md:flex md:w-auto md:gap-2 md:px-1"
+              className="grid size-11 place-items-center"
               aria-label="Rechercher"
             >
               <Search className="size-5" strokeWidth={1.6} />
-              <span className="hidden text-[13px] font-semibold uppercase tracking-[0.12em] lg:inline">Recherche</span>
             </button>
             <button
               type="button"
               onClick={openCart}
-              className="relative -mr-2 grid size-10 place-items-center md:mr-0 md:flex md:w-auto md:gap-2 md:px-1"
+              className="relative -mr-2 grid size-11 place-items-center"
               aria-label={`Ouvrir le panier, ${count} article${count > 1 ? "s" : ""}`}
             >
               <ShoppingBag className="size-5" strokeWidth={1.6} />
-              <span className="hidden text-[13px] font-semibold uppercase tracking-[0.12em] lg:inline">Panier</span>
               <AnimatePresence>
                 {count > 0 && (
                   <motion.span
@@ -141,7 +137,7 @@ export function Header() {
                     initial={{ scale: 0.4, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.4, opacity: 0 }}
-                    className="absolute right-0.5 top-0.5 grid h-[18px] min-w-[18px] place-items-center rounded-full bg-terracotta px-1 text-[10px] font-bold text-clay-50 md:static md:h-5 md:min-w-5"
+                    className="absolute right-0.5 top-1 grid h-4 min-w-4 place-items-center rounded-full bg-ink px-1 text-[10px] font-bold text-clay-50"
                   >
                     {count}
                   </motion.span>
@@ -166,7 +162,7 @@ export function Header() {
               <div className="mx-auto grid max-w-[1600px] grid-cols-[220px_1fr] gap-10 px-8 py-9">
                 <div className="flex flex-col gap-6">
                   <div>
-                    <p className="label-mono mb-3 text-muted">Vestiaire</p>
+                    <p className="label-mono mb-3 text-muted">Vêtements</p>
                     <ul className="space-y-2 text-[15px] font-medium">
                       <li><Link href="/collections" className="hover:text-terracotta">Tout voir</Link></li>
                       <li><Link href="/collections?categorie=hoodies" className="hover:text-terracotta">Hoodies</Link></li>
@@ -180,7 +176,7 @@ export function Header() {
                   {collections.map((c) => (
                     <li key={c.handle}>
                       <Link href={`/collections/${c.handle}`} className="group/m block">
-                        <div className="relative aspect-[4/5] overflow-hidden bg-clay-100">
+                        <div className="relative aspect-[3/4] overflow-hidden bg-clay-100">
                           <Image
                             src={c.image.src}
                             alt=""
@@ -194,7 +190,7 @@ export function Header() {
                           />
                         </div>
                         <p className="label-mono mt-3 text-muted">{c.kicker}</p>
-                        <p className="mt-1 text-lg font-semibold">{c.title}</p>
+                        <p className="mt-1 text-[15px] font-semibold uppercase tracking-[0.04em]">{c.title}</p>
                       </Link>
                     </li>
                   ))}

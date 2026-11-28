@@ -97,9 +97,9 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
 
       <section aria-labelledby="avis" className="mx-auto mt-10 max-w-[1600px] border-t border-ink/10 px-4 py-14 md:mt-20 md:px-8">
         <div className="grid gap-4 md:grid-cols-12">
-          <h2 id="avis" className="font-display text-[2.6rem] md:col-span-4 md:text-[3.4rem]">Avis clients</h2>
+          <h2 id="avis" className="font-display text-[18px] md:col-span-4 md:text-[20px]">Avis clients</h2>
           <div className="md:col-span-7 md:col-start-6">
-            <p className="font-serif text-2xl italic">Aucun avis publié pour cette pièce pour l&apos;instant.</p>
+            <p className="text-[17px] font-semibold">Aucun avis publié pour cette pièce pour l&apos;instant.</p>
             <p className="mt-2 text-[14px] text-muted">
               Les avis vérifiés (Judge.me) s&apos;afficheront ici une fois la boutique connectée. Nous n&apos;affichons que des avis
               d&apos;acheteurs réels.
@@ -110,7 +110,7 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
 
       <section aria-labelledby="look" className="bg-clay-100">
         <div className="mx-auto max-w-[1600px] px-4 py-16 md:px-8 md:py-20">
-          <h2 id="look" className="font-display text-[2.6rem] md:text-[3.4rem]">Complète le look</h2>
+          <h2 id="look" className="font-display text-[16px] md:text-[18px]">Complète le look</h2>
           <ul className="mt-8 grid grid-cols-2 gap-x-3 gap-y-10 md:grid-cols-4 md:gap-x-5">
             {related.map((p) => (
               <li key={p.handle}>

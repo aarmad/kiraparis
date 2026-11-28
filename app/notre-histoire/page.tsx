@@ -46,16 +46,16 @@ export default function StoryPage() {
   return (
     <>
       {/* Ouverture */}
-      <section className="grain relative -mt-16 overflow-hidden bg-terracotta text-clay-50 md:-mt-[72px]">
+      <section className="grain relative overflow-hidden bg-terracotta text-clay-50">
         <div className="cracked-earth pointer-events-none absolute inset-0" aria-hidden />
         <Emblem className="pointer-events-none absolute -bottom-[10%] -right-[15%] size-[90vw] text-chestnut/25 md:-right-[5%] md:size-[55vw]" />
-        <div className="relative z-[2] mx-auto flex min-h-[88svh] max-w-[1600px] flex-col justify-end px-4 pb-14 pt-32 md:px-8 md:pb-20">
+        <div className="relative z-[2] mx-auto flex min-h-[70svh] max-w-[1600px] flex-col justify-end px-4 pb-14 pt-32 md:px-8 md:pb-20">
           <p className="label-mono text-clay-50/75">Notre histoire</p>
-          <h1 className="mt-5 font-display text-[19vw] md:text-[12vw] 2xl:text-[12rem]">
+          <h1 className="mt-5 font-display text-[44px] md:text-[88px]">
             <span className="line-mask"><span>De Kirané</span></span>
             <span className="line-mask"><span style={{ animationDelay: "120ms" }}>à Paris</span></span>
           </h1>
-          <p className="mt-8 max-w-2xl font-serif text-[1.9rem] italic leading-[1.15] md:text-[2.6rem]">
+          <p className="mt-8 max-w-2xl text-[20px] leading-snug md:text-[26px]">
             Plus qu&apos;une marque. Une origine. Certaines cultures ne demandent pas à être vues&nbsp;: elles imposent leur présence.
           </p>
         </div>
@@ -66,8 +66,8 @@ export default function StoryPage() {
         {chapters.map((c, i) => (
           <section key={c.n} aria-labelledby={`ch-${c.n}`} className="grid items-center gap-10 border-b border-ink/10 py-20 md:grid-cols-12 md:py-28">
             <Reveal className={i % 2 ? "md:order-2 md:col-span-5 md:col-start-8" : "md:col-span-5"}>
-              <p className="font-display text-[5rem] text-terracotta md:text-[7rem]">{c.n}</p>
-              <h2 id={`ch-${c.n}`} className="mt-2 font-serif text-[2.6rem] leading-none tracking-[-0.02em] md:text-[3.6rem]">
+              <p className="font-display text-[40px] text-terracotta md:text-[56px]">{c.n}</p>
+              <h2 id={`ch-${c.n}`} className="mt-2 font-display text-[24px] md:text-[30px]">
                 {c.title}
               </h2>
               {c.body.map((p) => (
@@ -90,7 +90,7 @@ export default function StoryPage() {
         <div className="mx-auto grid max-w-[1600px] gap-12 px-4 py-20 md:grid-cols-12 md:px-8 md:py-28">
           <Reveal className="md:col-span-5">
             <p className="label-mono text-sand">Une identité claire</p>
-            <h2 id="pour-qui" className="mt-4 font-display text-[3.6rem] md:text-[5.5rem]">
+            <h2 id="pour-qui" className="mt-4 font-display text-[32px] md:text-[48px]">
               KIRA, ce n&apos;est pas pour tout le monde.
             </h2>
           </Reveal>
@@ -98,7 +98,7 @@ export default function StoryPage() {
             <p className="label-mono text-clay-50/55">C&apos;est pour ceux qui</p>
             <ul className="mt-4 divide-y divide-clay-50/15 border-y border-clay-50/15">
               {["assument leur histoire", "avancent sans suivre", "portent du sens, pas juste des vêtements"].map((t) => (
-                <li key={t} className="flex items-center gap-4 py-5 font-serif text-[1.9rem] italic md:text-[2.4rem]">
+                <li key={t} className="flex items-center gap-4 py-5 text-[20px] font-semibold uppercase tracking-[0.04em] md:text-[26px]">
                   <Emblem className="size-5 shrink-0 text-sand" /> {t}
                 </li>
               ))}
@@ -120,9 +120,9 @@ export default function StoryPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-chestnut-deep/85 via-chestnut-deep/20 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 mx-auto max-w-[1600px] px-4 pb-12 text-clay-50 md:px-8 md:pb-16">
             <p className="label-mono text-sand">Le début d&apos;un mouvement</p>
-            <p className="mt-4 max-w-3xl font-serif text-[2.2rem] leading-[1.08] md:text-[3.6rem]">
+            <p className="mt-4 max-w-3xl font-display text-[26px] leading-[1.15] md:text-[40px]">
               Ce que tu portes parle pour toi. Avec KIRA, tu portes une origine, une fierté, une direction.{" "}
-              <em className="text-sand">Et ce n&apos;est que le début.</em>
+              <span className="text-sand">Et ce n&apos;est que le début.</span>
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink href="/collections/athletics" variant="clay">

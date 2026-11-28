@@ -53,7 +53,7 @@ export default async function LegalPage({ params }: { params: Promise<{ slug: st
         </nav>
       </aside>
       <article className="md:col-span-8 md:col-start-5">
-        <h1 className="font-display text-[3.4rem] md:text-[5rem]">{page.title}</h1>
+        <h1 className="font-display text-[26px] md:text-[32px]">{page.title}</h1>
         <div className="mt-10 max-w-[68ch] text-[16px] leading-relaxed text-ink-soft">
           {content.blocks.map((b, i) =>
             isHeading(b) ? (

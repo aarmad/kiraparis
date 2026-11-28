@@ -16,14 +16,14 @@ export default function AllProductsPage() {
   const products = getProducts();
   return (
     <>
-      <header className="mx-auto max-w-[1600px] px-4 pb-8 pt-10 md:px-8 md:pt-16">
+      <header className="mx-auto max-w-[1600px] px-3 pb-6 pt-8 md:px-6 md:pt-10">
         <nav aria-label="Fil d'Ariane" className="label-mono text-muted">
-          <Link href="/" className="hover:text-ink">Accueil</Link> / <span className="text-ink">Boutique</span>
+          <Link href="/" className="hover:text-ink">Accueil</Link> / <span className="text-ink">Vêtements</span>
         </nav>
         <div className="mt-6 grid gap-6 md:grid-cols-12 md:items-end">
-          <h1 className="font-display text-[22vw] md:col-span-7 md:text-[10vw] 2xl:text-[10rem]">Le vestiaire</h1>
+          <h1 className="font-display text-[26px] md:col-span-7 md:text-[32px]">Tous les vêtements</h1>
           <div className="md:col-span-5">
-            <p className="max-w-md text-[17px] leading-relaxed text-ink-soft">
+            <p className="max-w-md text-[14px] leading-relaxed text-ink-soft">
               {products.length} pièces, trois drops. Des hoodies épais aux ensembles Athletics, tout ce que KIRA a mis au monde.
             </p>
             <ul className="mt-5 flex flex-wrap gap-2">
@@ -38,7 +38,7 @@ export default function AllProductsPage() {
           </div>
         </div>
       </header>
-      <section className="mx-auto max-w-[1600px] px-4 pb-24 md:px-8">
+      <section className="mx-auto max-w-[1600px] px-3 pb-24 md:px-6">
         <Suspense>
           <ProductGrid products={products} />
         </Suspense>

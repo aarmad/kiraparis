@@ -58,13 +58,13 @@ export function ProductGrid({ products }: { products: Product[] }) {
 
   const chip = (active: boolean) =>
     cn(
-      "h-9 shrink-0 border px-3.5 text-[13px] font-medium transition-colors",
+      "h-9 shrink-0 border px-3.5 text-[12px] font-semibold uppercase tracking-[0.04em] transition-colors",
       active ? "border-ink bg-ink text-clay-50" : "border-ink/20 hover:border-ink",
     );
 
   return (
     <div>
-      <div className="sticky top-16 z-20 -mx-4 border-y border-ink/10 bg-clay-50/92 px-4 py-3 backdrop-blur-xl md:top-[72px] md:-mx-8 md:px-8">
+      <div className="sticky top-16 z-20 -mx-3 border-y border-clay-200 bg-clay-50 px-3 py-3 md:top-[72px] md:-mx-6 md:px-6">
         <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
           {categories.length > 1 && (
             <div className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 md:mx-0 md:px-0" role="group" aria-label="Filtrer par catégorie">
@@ -127,12 +127,12 @@ export function ProductGrid({ products }: { products: Product[] }) {
       </div>
 
       <p className="label-mono mt-6 text-muted" aria-live="polite">
-        {visible.length} pièce{visible.length > 1 ? "s" : ""}
+        {visible.length} produit{visible.length > 1 ? "s" : ""}
       </p>
 
       {visible.length === 0 ? (
         <div className="py-24 text-center">
-          <p className="font-serif text-3xl italic">Rien dans cette taille pour l&apos;instant.</p>
+          <p className="text-[18px] font-semibold">Rien dans cette taille pour l&apos;instant.</p>
           <button
             type="button"
             className="mt-4 text-sm font-semibold underline underline-offset-4"
@@ -144,8 +144,8 @@ export function ProductGrid({ products }: { products: Product[] }) {
       ) : (
         <ul
           className={cn(
-            "mt-5 grid grid-cols-2 gap-x-3 gap-y-10 md:gap-x-5 md:gap-y-14",
-            dense ? "lg:grid-cols-4 xl:grid-cols-5" : "lg:grid-cols-3 xl:grid-cols-4",
+            "mt-5 grid grid-cols-2 gap-x-2 gap-y-8 md:gap-x-3 md:gap-y-10",
+            dense ? "md:grid-cols-4 xl:grid-cols-6" : "md:grid-cols-3 xl:grid-cols-4",
           )}
         >
           {visible.map((p, i) => (

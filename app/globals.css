@@ -1,23 +1,23 @@
 @import "tailwindcss";
 
-/* ───────────────────────── Design tokens — « Terre d'origine » ───────────────────────── */
+/* ───────────────────────── Design tokens — « Vestiaire » (blanc, gris, encre ; latérite en accent) ───────────────────────── */
 @theme {
-  --color-clay-50: #f4efe6;
-  --color-clay-100: #eae2d3;
-  --color-clay-200: #ddd2be;
-  --color-clay-300: #c9baa0;
+  --color-clay-50: #ffffff;
+  --color-clay-100: #f2f2f0;
+  --color-clay-200: #e6e6e3;
+  --color-clay-300: #d4d4d0;
   --color-sand: #d3a57a;
   --color-terracotta: #b04a1f;
   --color-terracotta-deep: #8f3a16;
   --color-chestnut: #4a2117;
   --color-chestnut-deep: #2e140d;
-  --color-ink: #15120f;
-  --color-ink-soft: #3b3530;
-  --color-muted: #6f655b;
+  --color-ink: #0e0e0e;
+  --color-ink-soft: #4a4a4a;
+  --color-muted: #6b6b6b;
   --color-athletics: #1e4a35;
 
   --font-sans: var(--font-text), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-serif-heritage), ui-serif, Georgia, serif;
+  --font-serif: var(--font-text), ui-sans-serif, sans-serif;
   --font-mono: var(--font-text), ui-sans-serif, sans-serif;
 
   --ease-out-soft: cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -57,13 +57,13 @@
 }
 
 /* ───────────────────────── Typographie ───────────────────────── */
+/* Titres « Vestiaire » : grotesque de presse en capitales, sobre et serrée */
 @utility font-display {
-  font-family: var(--font-display), "Arial Narrow", sans-serif;
-  font-variation-settings: "opsz" 72;
-  font-weight: 800;
+  font-family: var(--font-text), ui-sans-serif, sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
-  line-height: 0.88;
-  letter-spacing: 0.005em;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
 }
 /* Étiquettes : petites capitales espacées, à la manière d'une étiquette cousue */
 @utility label-mono {
@@ -71,7 +71,7 @@
   font-size: 0.6875rem;
   font-weight: 600;
   line-height: 1.4;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 

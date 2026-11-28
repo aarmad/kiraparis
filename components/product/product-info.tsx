@@ -59,12 +59,12 @@ export function ProductInfo({ product, siblings }: { product: Product; siblings:
   return (
     <div>
       <ProductBadges product={product} className="mb-4 flex-row" />
-      <h1 className="font-display text-[3.4rem] md:text-[4.4rem]">{product.name}</h1>
+      <h1 className="font-display text-[22px] md:text-[24px]">{product.name}</h1>
       <div className="mt-3 flex items-baseline justify-between gap-4">
         <p className="text-[15px] text-ink-soft">{product.color.name}</p>
-        <p className="text-2xl font-semibold tabular-nums">{formatPrice(product.price)}</p>
+        <p className="text-[18px] font-medium tabular-nums">{formatPrice(product.price)}</p>
       </div>
-      <p className="mt-5 font-serif text-[1.45rem] italic leading-snug text-ink-soft">{product.tagline}</p>
+      <p className="mt-4 text-[15px] leading-relaxed text-ink-soft">{product.tagline}</p>
 
       {/* Coloris */}
       {siblings.length > 1 && (
@@ -304,7 +304,7 @@ function Sheet({ open, onClose, title, children }: { open: boolean; onClose: () 
             className="absolute inset-y-0 right-0 w-full max-w-[480px] overflow-y-auto bg-clay-50 p-6"
           >
             <div className="flex items-center justify-between">
-              <h2 className="font-display text-[2.2rem]">{title}</h2>
+              <h2 className="font-display text-[18px]">{title}</h2>
               <button type="button" onClick={onClose} className="-mr-2 grid size-10 place-items-center" aria-label="Fermer">
                 <X className="size-5" />
               </button>

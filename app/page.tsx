@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Hero } from "@/components/sections/hero";
-import { Marquee } from "@/components/sections/marquee";
-import { DropGrid } from "@/components/sections/drop-grid";
-import { Manifesto } from "@/components/sections/manifesto";
-import { HunterShowcase } from "@/components/sections/collection-showcase";
-import { DenimFeature } from "@/components/sections/denim-feature";
-import { Craft } from "@/components/sections/craft";
+import { PromoStrip } from "@/components/sections/promo-strip";
+import { HeroSplit } from "@/components/sections/hero-split";
+import { FeaturedGrid } from "@/components/sections/featured-grid";
 import { Reassurance } from "@/components/sections/reassurance";
+import { CategoryTiles } from "@/components/sections/category-tiles";
+import { DropCards } from "@/components/sections/drop-cards";
+import { StoryStrip } from "@/components/sections/story-strip";
 
 export const metadata: Metadata = {
   title: { absolute: "KIRA Paris — Streetwear né à Kirané · Drop Kira Athletics" },
@@ -16,14 +15,13 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <Hero />
-      <Marquee />
-      <DropGrid />
-      <Manifesto />
-      <HunterShowcase />
-      <Craft />
-      <DenimFeature />
-      <Reassurance />
+      <PromoStrip />
+      <HeroSplit />
+      <FeaturedGrid />
+      <Reassurance className="mt-10" />
+      <CategoryTiles />
+      <DropCards />
+      <StoryStrip />
     </>
   );
 }
