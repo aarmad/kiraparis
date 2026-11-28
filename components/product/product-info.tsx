@@ -3,17 +3,26 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Bell, Check, ChevronDown, Lock, Ruler, RotateCcw, Truck, X } from "lucide-react";
+import { Bell, Check, Lock, Minus, Plus, Ruler, RotateCcw, ShoppingBag, Truck, X } from "lucide-react";
 import { cn } from "@/lib/cn";
 import type { Product } from "@/lib/commerce/types";
 import { useCart } from "@/components/cart/cart-context";
 import { formatPrice, site } from "@/lib/site";
 import { buttonClass } from "@/components/ui/button";
-import { ProductBadges } from "./product-badges";
 import { PaymentIcons } from "@/components/ui/payment-icons";
+import { CATEGORY_LABELS } from "@/lib/commerce";
+import { ProductMedia } from "./product-media";
 import { useBodyLock } from "@/lib/use-body-lock";
 
-export function ProductInfo({ product, siblings }: { product: Product; siblings: Product[] }) {
+export function ProductInfo({
+  product,
+  siblings,
+  pairing,
+}: {
+  product: Product;
+  siblings: Product[];
+  pairing?: Product;
+}) {
   const { add } = useCart();
   const [size, setSize] = useState<string | null>(null);
   const [error, setError] = useState(false);
@@ -54,39 +63,49 @@ export function ProductInfo({ product, siblings }: { product: Product; siblings:
       ? "Ajouté au panier"
       : variant && !variant.available
         ? "Taille épuisée"
-        : `Ajouter au panier — ${formatPrice(product.price)}`;
+        : "Ajouter au panier";
+
+  const lead = product.description[0];
+  const isNew = product.badges.includes("nouveau");
+  const limited = product.badges.includes("edition-limitee");
 
   return (
     <div>
-      <ProductBadges product={product} className="mb-4 flex-row" />
-      <h1 className="font-display text-[22px] md:text-[24px]">{product.name}</h1>
-      <div className="mt-3 flex items-baseline justify-between gap-4">
-        <p className="text-[15px] text-ink-soft">{product.color.name}</p>
-        <p className="text-[18px] font-medium tabular-nums">{formatPrice(product.price)}</p>
-      </div>
-      <p className="mt-4 text-[15px] leading-relaxed text-ink-soft">{product.tagline}</p>
+      <Link href={`/collections?categorie=${product.category}`} className="label-mono text-muted hover:text-ink">
+        {CATEGORY_LABELS[product.category]} →
+      </Link>
+      <h1 className="mt-3 text-[16px] font-bold uppercase leading-snug tracking-[0.04em] md:text-[17px]">
+        {product.name} - {product.color.name}
+      </h1>
+      <p className="mt-1.5 text-[15px] font-semibold tabular-nums">{formatPrice(product.price)}</p>
+      {(isNew || limited) && (
+        <p className="mt-2.5 flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.04em]">
+          <span className="size-1.5 bg-terracotta" aria-hidden />
+          {limited ? "Édition limitée" : "Nouveau"}
+        </p>
+      )}
 
-      {/* Coloris */}
+      {/* Autres coloris : vignettes photo */}
       {siblings.length > 1 && (
-        <div className="mt-8">
-          <p className="label-mono text-muted">
-            Coloris · <span className="text-ink">{product.color.name}</span>
+        <div className="mt-6">
+          <p className="text-[13px]">
+            Autre coloris · <span className="text-ink-soft">{product.color.name}</span>
           </p>
-          <ul className="mt-3 flex flex-wrap gap-2">
+          <ul className="mt-2 flex flex-wrap gap-1.5">
             {siblings.map((s) => (
               <li key={s.handle}>
                 <Link
                   href={`/produits/${s.handle}`}
                   scroll={false}
+                  title={s.color.name}
                   aria-label={`Coloris ${s.color.name}`}
                   aria-current={s.handle === product.handle ? "true" : undefined}
                   className={cn(
-                    "flex h-10 items-center gap-2 border px-3 text-[13px] transition",
-                    s.handle === product.handle ? "border-ink" : "border-ink/15 hover:border-ink/60",
+                    "relative block h-[66px] w-[54px] border transition-colors",
+                    s.handle === product.handle ? "border-ink" : "border-clay-200 hover:border-ink",
                   )}
                 >
-                  <span className="size-4 rounded-full" style={{ background: s.color.hex, boxShadow: "inset 0 0 0 1px rgb(0 0 0 / .15)" }} />
-                  {s.color.name}
+                  <ProductMedia image={s.images[0]} sizes="54px" className="absolute inset-0" />
                 </Link>
               </li>
             ))}
@@ -95,23 +114,26 @@ export function ProductInfo({ product, siblings }: { product: Product; siblings:
       )}
 
       {/* Tailles */}
-      <fieldset id="size-picker" className="mt-8">
-        <div className="flex items-center justify-between">
-          <legend className="label-mono text-muted">
-            Taille {size && <span className="text-ink">· {size}</span>}
-          </legend>
-          <button type="button" onClick={() => setGuide(true)} className="flex items-center gap-1.5 text-[13px] font-medium underline underline-offset-4">
-            <Ruler className="size-4" strokeWidth={1.6} /> Guide des tailles
-          </button>
-        </div>
-        <div className={cn("mt-3 grid gap-2", product.variants.length > 4 ? "grid-cols-5" : "grid-cols-4")}>
+      <fieldset id="size-picker" className="mt-6">
+        <legend className="sr-only">Taille</legend>
+        <button
+          type="button"
+          onClick={() => setGuide(true)}
+          className="flex items-center gap-2 text-[13px] font-bold underline underline-offset-[3px]"
+        >
+          <Ruler className="size-4" strokeWidth={1.7} /> Guide des tailles
+        </button>
+        <p className="mt-3 text-[13px]" aria-hidden>
+          Choisir ma taille : <strong>{size ?? "—"}</strong>
+        </p>
+        <div className="mt-2 flex flex-wrap gap-1.5">
           {product.variants.map((v) => (
             <label
               key={v.id}
               className={cn(
-                "relative grid h-12 cursor-pointer place-items-center border text-[14px] font-semibold transition-colors has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-terracotta",
-                size === v.size ? "border-ink bg-ink text-clay-50" : "border-ink/20 hover:border-ink",
-                !v.available && "text-muted",
+                "relative grid h-11 min-w-12 cursor-pointer place-items-center border px-3 text-[13px] transition-colors has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-terracotta",
+                size === v.size ? "border-ink bg-ink text-clay-50" : "border-clay-300 hover:border-ink",
+                !v.available && size !== v.size && "text-muted",
               )}
             >
               <input
@@ -132,23 +154,50 @@ export function ProductInfo({ product, siblings }: { product: Product; siblings:
         </div>
         <AnimatePresence>
           {error && (
-            <motion.p initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="mt-2 text-[13px] font-medium text-terracotta" role="alert">
+            <motion.p
+              initial={{ opacity: 0, y: -4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              className="mt-2 text-[13px] font-medium text-terracotta"
+              role="alert"
+            >
               Choisis ta taille pour continuer.
             </motion.p>
           )}
         </AnimatePresence>
         {soldOutSizes.length > 0 && !allSoldOut && (
-          <p className="mt-2 text-[13px] text-muted">
-            Épuisé en {soldOutSizes.join(", ")}. Sélectionne la taille pour être prévenu(e) du retour en stock.
+          <p className="mt-2 text-[12px] text-muted">
+            Épuisé en {soldOutSizes.join(", ")} — sélectionne la taille pour être prévenu(e) du retour.
           </p>
         )}
-        {product.fitNote && <p className="mt-3 text-[13px] text-ink-soft">{product.fitNote}</p>}
       </fieldset>
 
+      {/* À porter avec */}
+      {pairing && (
+        <Link
+          href={`/produits/${pairing.handle}`}
+          className="group/pair mt-5 flex items-center gap-3.5 border border-ink p-3 transition-colors hover:bg-clay-100"
+        >
+          <span className="relative block h-[70px] w-14 shrink-0">
+            <ProductMedia image={pairing.images[0]} sizes="56px" className="absolute inset-0" />
+          </span>
+          <span className="min-w-0 flex-1">
+            <span className="label-mono block text-muted">À porter avec</span>
+            <span className="mt-1 block truncate text-[12.5px] font-semibold uppercase tracking-[0.04em]">
+              {pairing.name} - {pairing.color.name}
+            </span>
+            <span className="text-[13px] tabular-nums">{formatPrice(pairing.price)}</span>
+          </span>
+          <span className="shrink-0 border border-ink px-3 py-2 text-[11px] font-bold uppercase tracking-[0.04em] group-hover/pair:bg-ink group-hover/pair:text-clay-50">
+            Voir
+          </span>
+        </Link>
+      )}
+
       {/* CTA */}
-      <div className="mt-6">
+      <div className="mt-4">
         {variant && !variant.available ? (
-          <button type="button" onClick={() => setNotify(variant.size)} className={buttonClass("outline", "w-full")}>
+          <button type="button" onClick={() => setNotify(variant.size)} className={buttonClass("outline", "h-[52px] w-full")}>
             <Bell className="size-4" /> Me prévenir du retour en {variant.size}
           </button>
         ) : (
@@ -157,72 +206,91 @@ export function ProductInfo({ product, siblings }: { product: Product; siblings:
             type="button"
             onClick={handleAdd}
             disabled={allSoldOut}
-            className={buttonClass(added ? "terracotta" : "ink", "h-14 w-full text-[14px]")}
+            className={cn(
+              "flex h-[52px] w-full items-center justify-center gap-2.5 text-[13px] font-bold uppercase tracking-[0.04em] text-clay-50 transition-colors disabled:opacity-50",
+              added ? "bg-terracotta" : "bg-ink hover:bg-terracotta",
+            )}
           >
-            {added && <Check className="size-4" />}
+            {added ? <Check className="size-4" /> : <ShoppingBag className="size-4" strokeWidth={2} />}
             {ctaLabel}
           </button>
         )}
-        <div className="mt-4 flex flex-col items-center gap-2.5">
-          <p className="flex items-center gap-2 text-[12px] text-muted">
-            <Lock className="size-3.5" /> Paiement sécurisé
-          </p>
-          <PaymentIcons only="main" size="sm" className="justify-center" />
-        </div>
       </div>
 
-      <ul className="mt-6 grid gap-3 border-y border-ink/10 py-5 text-[14px]">
-        <li className="flex gap-3">
-          <Truck className="mt-0.5 size-4 shrink-0 text-terracotta" strokeWidth={1.7} />
-          <span>
-            Expédié sous {site.dispatchDays} jours ouvrés, livré en {site.deliveryFrance} en France.{" "}
-            <span className="text-muted">Offerte dès {formatPrice(site.freeShippingThreshold).replace(",00", "")}.</span>
-          </span>
+      {product.fitNote && <p className="mt-3 text-center text-[12px] text-ink-soft">{product.fitNote}</p>}
+
+      {/* Livraison */}
+      <p className="mt-4 bg-clay-100 px-4 py-3.5 text-[13px] leading-relaxed">
+        Expédié sous <strong>{site.dispatchDays} jours ouvrés</strong>, livré en {site.deliveryFrance} en France. Livraison{" "}
+        <strong>offerte dès {formatPrice(site.freeShippingThreshold).replace(",00", "")}</strong> d&apos;achat.{" "}
+        <Link href="/legal/livraison" className="underline underline-offset-2">
+          Livraison & délais
+        </Link>
+      </p>
+
+      <ul className="mt-4 grid grid-cols-3 border-y border-clay-200 py-3.5 text-center text-[11.5px]">
+        <li className="flex flex-col items-center gap-1.5">
+          <Truck className="size-5" strokeWidth={1.5} /> Expédié sous {site.dispatchDays} j
         </li>
-        <li className="flex gap-3">
-          <RotateCcw className="mt-0.5 size-4 shrink-0 text-terracotta" strokeWidth={1.7} />
-          <span>
-            {site.returnDays} jours pour changer d&apos;avis. <span className="text-muted">Échange de taille possible.</span>
-          </span>
+        <li className="flex flex-col items-center gap-1.5">
+          <RotateCcw className="size-5" strokeWidth={1.5} /> Retours sous {site.returnDays} jours
+        </li>
+        <li className="flex flex-col items-center gap-1.5">
+          <Lock className="size-5" strokeWidth={1.5} /> Paiement sécurisé
         </li>
       </ul>
+      <PaymentIcons only="main" size="sm" className="mt-3 justify-center" />
 
-      {/* Détails */}
-      <div className="mt-2 divide-y divide-ink/10">
-        <Accordion title="Description" defaultOpen>
-          {product.description.map((p) => (
-            <p key={p.slice(0, 20)} className="mb-3 last:mb-0">
-              {p}
-            </p>
+      {/* Description : phrase d'accroche + puces */}
+      <div className="mt-6 text-[14px] leading-relaxed">
+        <p className="font-bold">{lead}</p>
+        {product.description.slice(1).map((p) => (
+          <p key={p.slice(0, 20)} className="mt-2 text-ink-soft">
+            {p}
+          </p>
+        ))}
+        <ul className="mt-3 list-disc space-y-1 pl-5">
+          {product.specs.map((sp) => (
+            <li key={sp}>{sp}.</li>
           ))}
+        </ul>
+      </div>
+
+      {/* Accordéons */}
+      <div className="mt-6">
+        <Accordion title="Questions fréquentes">
+          <p>
+            Nos pièces sont taillées de manière standard : prends la taille au-dessus pour un rendu plus oversize, ta taille habituelle
+            pour un fit plus ajusté.
+          </p>
+          <p className="mt-2">
+            <Link href="/faq" className="underline underline-offset-2">
+              Toutes les questions
+            </Link>
+          </p>
         </Accordion>
-        <Accordion title="Fiche technique">
-          <ul className="space-y-0">
-            {product.specs.map((s) => (
-              <li key={s} className="flex gap-3 border-b border-dashed border-ink/15 py-2 font-mono text-[12.5px] uppercase tracking-wide last:border-0">
-                <span className="text-terracotta">—</span> {s}
-              </li>
-            ))}
-          </ul>
-        </Accordion>
-        {product.care && (
-          <Accordion title="Entretien">
-            <ul className="list-inside list-disc space-y-1">
-              {product.care.map((c) => (
-                <li key={c}>{c}</li>
-              ))}
-            </ul>
-          </Accordion>
-        )}
         <Accordion title="Livraison & retours">
           <p>
             Livraison en {site.deliveryFrance} en France métropolitaine, 5 à 7 jours en Europe. Pendant les deux semaines suivant un drop,
             l&apos;expédition peut prendre jusqu&apos;à 7 jours ouvrés.
           </p>
-          <p className="mt-3">
+          <p className="mt-2">
             Tu disposes de {site.returnDays} jours après réception pour demander un retour.{" "}
-            <Link href="/legal/retours" className="underline underline-offset-4">Voir la politique de retour</Link>
+            <Link href="/legal/retours" className="underline underline-offset-2">
+              Politique de retour
+            </Link>
           </p>
+        </Accordion>
+        <Accordion title="Conseil d'entretien">
+          {product.care ? (
+            <ul className="list-disc space-y-1 pl-5">
+              {product.care.map((c) => (
+                <li key={c}>{c}</li>
+              ))}
+            </ul>
+          ) : (
+            <p>Lavage à 30 °C, à l&apos;envers, pour préserver les couleurs et la matière.</p>
+          )}
         </Accordion>
       </div>
 
@@ -238,7 +306,7 @@ export function ProductInfo({ product, siblings }: { product: Product; siblings:
             style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
           >
             <div className="min-w-0 flex-1">
-              <p className="truncate text-[13px] font-semibold">{product.name}</p>
+              <p className="truncate text-[12px] font-bold uppercase tracking-[0.04em]">{product.name} - {product.color.name}</p>
               <p className="text-[12px] text-muted">
                 {size ? `Taille ${size}` : "Choisis ta taille"} · {formatPrice(product.price)}
               </p>
@@ -264,10 +332,10 @@ function Accordion({ title, children, defaultOpen }: { title: string; children: 
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
-        className="flex w-full items-center justify-between py-4 text-left text-[13px] font-semibold uppercase tracking-[0.12em]"
+        className="flex w-full items-center justify-between border-b border-clay-200 py-3.5 text-left text-[12px] font-bold uppercase tracking-[0.04em]"
       >
         {title}
-        <ChevronDown className={cn("size-4 transition-transform duration-300", open && "rotate-180")} />
+        {open ? <Minus className="size-4" strokeWidth={1.5} /> : <Plus className="size-4" strokeWidth={1.5} />}
       </button>
       <AnimatePresence initial={false}>
         {open && (
@@ -278,7 +346,7 @@ function Accordion({ title, children, defaultOpen }: { title: string; children: 
             transition={{ duration: 0.3, ease: [0.2, 0.7, 0.2, 1] }}
             className="overflow-hidden"
           >
-            <div className="pb-5 text-[15px] leading-relaxed text-ink-soft">{children}</div>
+            <div className="border-b border-clay-200 py-4 text-[13.5px] leading-relaxed text-ink-soft">{children}</div>
           </motion.div>
         )}
       </AnimatePresence>

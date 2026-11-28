@@ -38,7 +38,7 @@ export function ProductGallery({ product }: { product: Product }) {
         >
           {product.images.map((img, i) => (
             <li key={img.src} className="w-full shrink-0 snap-center">
-              <button type="button" className="relative block aspect-[4/5] w-full" onClick={() => setZoom(i)} aria-label={`Agrandir : ${img.alt}`}>
+              <button type="button" className="relative block aspect-[3/4] w-full" onClick={() => setZoom(i)} aria-label={`Agrandir : ${img.alt}`}>
                 <ProductMedia image={img} sizes="100vw" priority={i === 0} className="absolute inset-0" />
               </button>
             </li>
@@ -55,24 +55,24 @@ export function ProductGallery({ product }: { product: Product }) {
       </div>
 
       {/* Desktop */}
-      <ul className="hidden grid-cols-2 gap-2 md:grid">
+      <ul className="hidden grid-cols-2 gap-[3px] md:grid">
         {product.images.map((img, i) => (
           <li
             key={img.src}
             className={cn(
-              (i === 0 || ((product.images.length - 1) % 2 === 1 && i === product.images.length - 1)) && "col-span-2",
+              product.images.length % 2 === 1 && i === product.images.length - 1 && "col-span-2",
             )}
           >
             <button
               type="button"
               onClick={() => setZoom(i)}
-              className="group/g relative block aspect-[4/5] w-full cursor-zoom-in"
+              className={cn("group/g relative block w-full cursor-zoom-in", product.images.length % 2 === 1 && i === product.images.length - 1 ? "aspect-[3/2]" : "aspect-[3/4]")}
               aria-label={`Agrandir : ${img.alt}`}
             >
               <ProductMedia
                 image={img}
                 priority={i === 0}
-                sizes={i === 0 ? "(min-width: 1024px) 58vw, 60vw" : "(min-width: 1024px) 29vw, 30vw"}
+                sizes="(min-width: 768px) 28vw, 50vw"
                 className="absolute inset-0"
               />
               <span className="absolute bottom-3 right-3 grid size-9 place-items-center bg-clay-50/85 opacity-0 backdrop-blur transition group-hover/g:opacity-100">
